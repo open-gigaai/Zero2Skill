@@ -29,11 +29,11 @@ Set `$PHYSCLAW_0_ROOT` to this repository root. Three-view scripts and analysis 
    - Collection actions: First observe to get fresh scene info, then execute Shell commands in `collection_command` one by one.
    - Judge collection: Call `$PHYSCLAW_0_ROOT/skills/understand-three-view-images/scripts/auto_understand_images.sh --prompt <prompt_for_judging_collect>`:
      - On success, proceed to reset.
-     - On failure, retry from collection judging; if `collect_attempts > 1`, pause and request human help.
+     - On failure, retry from collection judging; if `collect_attempts > 3`, pause and request human help.
    - Reset actions: First observe to get fresh scene info, then execute Shell commands in `reset_command` one by one.
    - Judge reset: Call `$PHYSCLAW_0_ROOT/skills/understand-three-view-images/scripts/auto_understand_images.sh --prompt <prompt_for_judging_reset>`:
      - On success, proceed to the next round.
-     - On failure, re-run reset actions; if `reset_attempts > 1`, pause and request human help.
+     - On failure, re-run reset actions; if `reset_attempts > 3`, pause and request human help.
 3. In Phase B, keep user messages brief: omit non-essential info; only report the current round, collection result, reset result, and progress.
 
 ## Example
