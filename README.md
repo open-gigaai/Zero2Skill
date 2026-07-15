@@ -1,18 +1,10 @@
-# PhysClaw-0
+# PhysClaw-0: A Symbiotic Agentic System for Robot Autonomy via Language Corrections
 
-**A symbiotic agentic system for robot autonomy via language corrections.**
+[Project Page](https://open-gigaai.github.io/PhysClaw)
+[Arxiv](#)
 
-PhysClaw-0 collects real-robot demonstrations with a verification-gated
-analyze → collect → reset loop. The system runs autonomously for most episodes
-and pauses for a remote operator only when a phase exhausts its retry budget.
-The operator replies in natural language; the agent parses that feedback into
-plan / criterion updates and retains them in **conversation context**
-(Corrective Memory — no separate store module) so the same failure mode is
-handled automatically on later rounds.
-
-Manipulation uses **SAM3 text prompt → AnyGrasp → joint grasp/place**,
-orchestrated by OpenClaw-style skills, plus a post-collect stats / quality
-platform.
+## Abstract
+Autonomous data collection governs both the volume and quality of real-world trajectories available for manipulation policy learning. Existing pipelines reduce human effort through self-resetting mechanisms, VLM-based verification, or language-guided correction. However, in long-horizon collection, the same failure modes recur across episodes. A correction scoped to the episode at hand must be re-issued at every recurrence, so the cost of oversight grows with session duration rather than with the number of distinct problems. We present PhysClaw-0, a human-robot symbiotic agentic system in which the robot improves under natural-language guidance. The operator supplies corrective knowledge in natural language, and every correction is retained for reuse in all subsequent rounds. As this knowledge accumulates, a failure mode that has been corrected once is typically handled automatically thereafter, so the operator’s attention is drawn to new problems rather than to recurrences of old ones. PhysClaw-0 formulates the collection loop as a verification-gated decision process, in which the system collects, verifies, and resets autonomously and pauses to notify a remote operator only when a phase fails verification repeatedly, a boundary set by an explicit retry budget. The operator describes the observed problem in natural language. An LLM parser translates each utterance into a structured system adjustment and stores it in a Corrective Memory consulted on subsequent rounds, so that an addressed failure mode is less likely to require a second correction under the same conditions. On a real-robot desktop-clearing testbed, PhysClaw-0 matches the episode collection success rate of full human teleoperation while reducing human working time to 16% of that required by teleoperation. Language corrections repair both verifier criteria and execution strategies, improving the verifier’s agreement with human labels in all four evaluated settings and raising average single-attempt collection success from 12.5% to 47.5%, with a separate arm-selection correction improving it from 20.0% to 50.0%. Closing the loop to deployment, policies fine-tuned on PhysClaw-0-collected data match the policy success rate of those trained on full teleoperation data while requiring only a fraction of the human working time during collection.
 
 This repository packages first-party pipelines, motion helpers, dataset
 stats/quality tools, and four agent skills. It does **not** redistribute the
