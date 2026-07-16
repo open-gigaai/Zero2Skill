@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PhysClaw-0: A Symbiotic Agentic System for Robot Autonomy via Language Corrections</title>
-<meta name="description" content="PhysClaw — a human-robot symbiotic agentic system. The robot collects data autonomously and asks for help in natural language. Correct it once; the correction is reused in every subsequent round.">
-<meta property="og:title" content="PhysClaw-0: A Symbiotic Agentic System for Robot Autonomy via Language Corrections">
+<title>Zero2Skill: Bootstrapping Robot Skills through Autonomous Data Collection, Training, and Deployment</title>
+<meta name="description" content="Zero2Skill — bootstrapping robot skills through autonomous data collection, training, and deployment. The robot collects data autonomously and asks for help in natural language. Correct it once; the correction is reused in every subsequent round.">
+<meta property="og:title" content="Zero2Skill: Bootstrapping Robot Skills through Autonomous Data Collection, Training, and Deployment">
 <meta property="og:description" content="Matches full-teleoperation episode collection success with 16% of the human working time. Policies fine-tuned on its data reach the same 80% success rate as teleoperation data.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,7 +129,7 @@
 
 <header class="wrap">
   <div class="venue">GigaAI · 2026</div>
-  <h1>PhysClaw-0: A Symbiotic Agentic System for Robot Autonomy via Language Corrections</h1>
+  <h1>Zero2Skill: Bootstrapping Robot Skills through Autonomous Data Collection, Training, and Deployment</h1>
 
   <div class="authors">
     <span class="author"><a href="#">Boyuan Wang</a><sup>1,2,*</sup></span>,
@@ -159,8 +159,8 @@
   <div class="eqnote"><sup>*</sup>Equal contribution &nbsp;·&nbsp; <sup>&#9993;</sup>Corresponding author</div>
 
   <div class="btns">
-    <a class="btn" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm8 1v5h5"/></svg>arXiv</a>
-    <a class="btn" href="https://github.com/open-gigaai/PhysClaw"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C20.7 4.6 21.7 5 21.7 5c.6 1.6.2 2.8.1 3.1.8.9 1.2 2 1.2 3.2 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>Code</a>
+    <a class="btn" href="https://arxiv.org/abs/2607.14047"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm8 1v5h5"/></svg>arXiv</a>
+    <a class="btn" href="https://github.com/open-gigaai/Zero2Skill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C20.7 4.6 21.7 5 21.7 5c.6 1.6.2 2.8.1 3.1.8.9 1.2 2 1.2 3.2 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>Code</a>
     <a class="btn" href="#bibtex">BibTeX</a>
   </div>
 
@@ -183,13 +183,13 @@
 
 <section>
   <h2>Abstract</h2>
-  <p class="muted">In long-horizon collection, the same failure modes recur across episodes — and a correction scoped to the episode at hand must be re-issued at every recurrence, so the cost of oversight grows with session duration rather than with the number of distinct problems. <b style="color:var(--ink)">PhysClaw</b> is a human-robot symbiotic agentic system that formulates the collection loop as a verification-gated decision process: the robot collects, verifies, and resets autonomously and pauses to notify a remote operator only when a phase fails verification repeatedly, a boundary set by an explicit retry budget. The operator describes the problem in natural language; an LLM parser translates each utterance into a structured adjustment stored in a persistent <b style="color:var(--ink)">Corrective Memory</b> consulted on all subsequent rounds, so an addressed failure mode rarely needs a second correction. On a real-robot desktop-clearing testbed, PhysClaw matches the episode collection success rate of full teleoperation with 16% of the human working time; language corrections repair both verifier criteria and execution strategies — improving verifier agreement with human labels in all four evaluated settings and raising single-attempt collection success from 12.5% to 47.5% (20.0% to 50.0% in a separate arm-selection comparison) — and policies fine-tuned on its data match those trained on teleoperation data.</p>
+  <p class="muted">In long-horizon collection, the same failure modes recur across episodes — and a correction scoped to the episode at hand must be re-issued at every recurrence, so the cost of oversight grows with session duration rather than with the number of distinct problems. <b style="color:var(--ink)">Zero2Skill</b> is a human-robot symbiotic agentic system that formulates the collection loop as a verification-gated decision process: the robot collects, verifies, and resets autonomously and pauses to notify a remote operator only when a phase fails verification repeatedly, a boundary set by an explicit retry budget. The operator describes the problem in natural language; an LLM parser translates each utterance into a structured adjustment stored in a persistent <b style="color:var(--ink)">Corrective Memory</b> consulted on all subsequent rounds, so an addressed failure mode rarely needs a second correction. On a real-robot desktop-clearing testbed, Zero2Skill matches the episode collection success rate of full teleoperation with 16% of the human working time; language corrections repair both verifier criteria and execution strategies — improving verifier agreement with human labels in all four evaluated settings and raising single-attempt collection success from 12.5% to 47.5% (20.0% to 50.0% in a separate arm-selection comparison) — and policies fine-tuned on its data match those trained on teleoperation data.</p>
 </section>
 
 <section>
   <h2>Method</h2>
   <p class="muted center">One instruction becomes a plan — collection and reset routines plus their verification prompts. Collection then runs as a verification-gated collect–verify–reset loop: each phase must earn an explicit <b style="color:var(--ink)">yes</b> verdict from a VLM verifier, up to a retry budget of 3. When a phase exhausts its retries, the system halts in the Alert state, asks the operator in language, and persists the answer to Corrective Memory.</p>
-  <img src="static/images/method.png" alt="Overview of the agent-guided robotic data collection pipeline in PhysClaw" style="width:100%;border-radius:10px;margin-top:22px">
+  <img src="static/images/method.png" alt="Overview of the agent-guided robotic data collection pipeline in Zero2Skill" style="width:100%;border-radius:10px;margin-top:22px">
   <p class="caption">Within a session the system changes its behavior through text alone; between sessions the policy changes its weights through data alone. Built on OpenClaw — VLM verifier: Seed1.8; LLM parser: DeepSeek-V3.2.</p>
 </section>
 
@@ -251,7 +251,7 @@
 
   <div class="tablewrap">
   <table>
-    <thead><tr><th>Collection efficiency (50 episodes)</th><th>Human Teleop</th><th>Scripts</th><th class="ours">PhysClaw</th></tr></thead>
+    <thead><tr><th>Collection efficiency (50 episodes)</th><th>Human Teleop</th><th>Scripts</th><th class="ours">Zero2Skill</th></tr></thead>
     <tbody>
       <tr><td>Successful episodes</td><td>50 / 50</td><td>35 / 50</td><td class="ours">50 / 50</td></tr>
       <tr><td>Human teleoperation time</td><td>30.0 min</td><td>1.0 min</td><td class="ours">0.0 min</td></tr>
@@ -313,16 +313,16 @@
   <div class="bars">
     <div class="bar"><span class="bl">Scripted data</span><span class="btrack"><span class="bfill" style="width:55%"></span></span><span class="bv">55.0%</span></div>
     <div class="bar"><span class="bl">Full human teleop (30 human-min)</span><span class="btrack"><span class="bfill" style="width:80%"></span></span><span class="bv">80.0%</span></div>
-    <div class="bar hl"><span class="bl">PhysClaw data (4.8 human-min)</span><span class="btrack"><span class="bfill" style="width:80%"></span></span><span class="bv">80.0%</span></div>
+    <div class="bar hl"><span class="bl">Zero2Skill data (4.8 human-min)</span><span class="btrack"><span class="bfill" style="width:80%"></span></span><span class="bv">80.0%</span></div>
   </div>
-  <p class="caption">PhysClaw data is good enough, not merely cheap — the same 80% policy success as full teleoperation on this 20-trial evaluation, at a fraction of the human cost.</p>
+  <p class="caption">Zero2Skill data is good enough, not merely cheap — the same 80% policy success as full teleoperation on this 20-trial evaluation, at a fraction of the human cost.</p>
 
   <div class="tablewrap">
   <table>
     <thead><tr><th>Data-quality diagnostics (50 episodes each)</th><th>Smoothness ↑</th><th>Aesthetics ↑</th><th>Brightness</th><th>RMS jerk ↓</th></tr></thead>
     <tbody>
       <tr><td>Full human teleop</td><td>78.1 ± 7.7</td><td>55.2 ± 1.6</td><td>133 ± 2</td><td>267 ± 66</td></tr>
-      <tr><td class="ours">PhysClaw collector</td><td>64.2 ± 22.7</td><td class="ours">61.2 ± 1.1</td><td>130 ± 2</td><td class="ours">191 ± 97</td></tr>
+      <tr><td class="ours">Zero2Skill collector</td><td>64.2 ± 22.7</td><td class="ours">61.2 ± 1.1</td><td>130 ± 2</td><td class="ours">191 ± 97</td></tr>
     </tbody>
   </table>
   </div>
@@ -331,9 +331,9 @@
 
 <section id="bibtex">
   <h2>BibTeX</h2>
-<pre>@article{wang2026physclaw,
-  title   = {PhysClaw-0: A Symbiotic Agentic System for
-             Robot Autonomy via Language Corrections},
+<pre>@article{wang2026zero2skill,
+  title   = {Zero2Skill: Bootstrapping Robot Skills through
+             Autonomous Data Collection, Training, and Deployment},
   author  = {Wang, Boyuan and Zhang, Zhenyuan and Yang, Zhiqin and
              Gu, Peijun and Wang, Shuya and Wang, Xiaofeng and
              Ze, Xianghui and Chang, Yifan and Zhao, Guosheng and
@@ -341,7 +341,7 @@
              Zhang, Yonggang and Xue, Wei and Guan, Chunyuan and
              Pu, Chenglin and Guo, Yike and Wang, Xingang and
              Zhu, Zheng},
-  journal = {arXiv preprint},
+  journal = {arXiv preprint arXiv:2607.14047},
   year    = {2026}
 }</pre>
 </section>
