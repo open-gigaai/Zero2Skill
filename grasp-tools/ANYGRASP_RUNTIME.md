@@ -15,4 +15,4 @@ grasp-tools/
   log/checkpoint_detection.tar
 ```
 
-These files are gitignored and must not be redistributed with PhysClaw-0.
+These files are gitignored and must not be redistributed with Zero2Skill.
